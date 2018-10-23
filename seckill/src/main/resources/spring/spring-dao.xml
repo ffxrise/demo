@@ -13,7 +13,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <!--配置连接池属性-->
         <property name="driverClass" value="${driver}"/>
         <property name="jdbcUrl" value="${url}"/>
-        <property name="user" value="root"/>
+        <!--<property name="user" value="root"/>-->
+        <property name="user" value="${username}"/>
         <property name="password" value="${password}"/>
 
         <!--连接池私有属性-->
