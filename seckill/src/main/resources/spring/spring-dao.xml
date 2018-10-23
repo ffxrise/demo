@@ -11,11 +11,11 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <!--2：数据库的连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
     <!--配置连接池属性-->
-        <property name="driverClass" value="${driver}"/>
-        <property name="jdbcUrl" value="${url}"/>
+        <property name="driverClass" value="${dataSource.driver}"/>
+        <property name="jdbcUrl" value="${dataSource.url}"/>
         <!--<property name="user" value="root"/>-->
-        <property name="user" value="${username}"/>
-        <property name="password" value="${password}"/>
+        <property name="user" value="${dataSource.username}"/>
+        <property name="password" value="${dataSource.password}"/>
 
         <!--连接池私有属性-->
         <property name="maxPoolSize" value="30"/>
