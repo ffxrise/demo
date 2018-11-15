@@ -2,7 +2,7 @@ package org.seckill.service.impl;
 
 import org.seckill.dao.SeckillDao;
 import org.seckill.dao.SuccessKilledDao;
-import org.seckill.dto.Exporter;
+import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.entity.Seckill;
 import org.seckill.entity.SuccessKilled;
@@ -43,21 +43,21 @@ public class SeckillServiceImpl implements SeckillService {
     }
 
     @Override
-    public Exporter exportSeckillUrl(long seckillId) {
+    public Exposer exportSeckillUrl(long seckillId) {
         Seckill seckill = seckillDao.queryById(seckillId);
         if (seckill == null) {
-            return new Exporter(false, seckillId);
+            return new Exposer(false, seckillId);
         }
         Date startTime = seckill.getStartTime();
         Date endTime = seckill.getEndTime();
         //系统当前时间
         Date nowTime = new Date();
         if (nowTime.getTime() < startTime.getTime() || nowTime.getTime() > endTime.getTime()) {
-            return new Exporter(false, seckillId, nowTime.getTime(), startTime.getTime(), endTime.getTime());
+            return new Exposer(false, seckillId, nowTime.getTime(), startTime.getTime(), endTime.getTime());
         }
         //转换特定字符串的过程，不可逆
         String md5 = getMD5(seckillId);
-        return new Exporter(true, md5, seckillId);
+        return new Exposer(true, md5, seckillId);
     }
 
     private String getMD5(long seckillId) {

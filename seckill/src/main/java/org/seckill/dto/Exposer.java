@@ -3,7 +3,7 @@ package org.seckill.dto;
 /**
  * 暴露秒杀地址dto
  */
-public class Exporter {
+public class Exposer {
 
     //是否开始秒杀
     private boolean exposed;
@@ -23,13 +23,13 @@ public class Exporter {
     //结束时间（毫秒）
     private long end;
 
-    public Exporter(boolean exposed, String md5, long seckillId) {
+    public Exposer(boolean exposed, String md5, long seckillId) {
         this.exposed = exposed;
         this.md5 = md5;
         this.seckillId = seckillId;
     }
 
-    public Exporter(boolean exposed, long seckillId, long now, long start, long end) {
+    public Exposer(boolean exposed, long seckillId, long now, long start, long end) {
         this.exposed = exposed;
         this.seckillId = seckillId;
         this.now = now;
@@ -37,7 +37,7 @@ public class Exporter {
         this.end = end;
     }
 
-    public Exporter(boolean exposed, long seckillId) {
+    public Exposer(boolean exposed, long seckillId) {
         this.exposed = exposed;
         this.seckillId = seckillId;
     }
@@ -92,7 +92,7 @@ public class Exporter {
 
     @Override
     public String toString() {
-        return "Exporter{" +
+        return "Exposer{" +
                 "exposed=" + exposed +
                 ", md5='" + md5 + '\'' +
                 ", seckillId=" + seckillId +

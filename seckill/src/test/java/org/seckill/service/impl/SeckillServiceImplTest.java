@@ -2,7 +2,7 @@ package org.seckill.service.impl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.seckill.dto.Exporter;
+import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.entity.Seckill;
 import org.seckill.service.SeckillService;
@@ -13,8 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/spring-dao.xml","classpath:spring/spring-service.xml"})
@@ -39,8 +37,8 @@ public class SeckillServiceImplTest {
 
     @Test
     public void exportSeckillUrl() {
-        Exporter exporter = seckillService.exportSeckillUrl(1000L);
-        logger.info("exporter={}",exporter);
+        Exposer exposer = seckillService.exportSeckillUrl(1000L);
+        logger.info("exposer={}", exposer);
         //exposed=true, md5='1e67a1e2619acde996610ea19a8b2aec', seckillId=1000, now=0, start=0, end=0
     }
 
