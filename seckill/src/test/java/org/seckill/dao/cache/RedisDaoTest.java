@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.annotation.Resource;
-
 /**
  * 配置junit和spring整合，junit启动时加载springioc容器、
  * spring-test,JUNIT
@@ -24,14 +22,15 @@ public class RedisDaoTest {
     private long id = 1002;
     @Autowired
     private SeckillDao seckillDao;
+
     @Test
     public void testSeckill() {
         //get and put
-        Seckill seckill =redisDao.getSeckill(id);
+        Seckill seckill = redisDao.getSeckill(id);
         System.out.println(seckill);
-        if (seckill==null){
+        if (seckill == null) {
             seckill = seckillDao.queryById(id);
-            if (seckill!=null){
+            if (seckill != null) {
                 String result = redisDao.putSeckilll(seckill);
                 System.out.println(result);
                 Seckill seckill1 = redisDao.getSeckill(id);

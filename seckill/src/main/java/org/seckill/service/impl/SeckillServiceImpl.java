@@ -93,6 +93,7 @@ public class SeckillServiceImpl implements SeckillService {
         if (md5 == null || !md5.equals(getMD5(seckillId))) {
             throw new SeckillException("seckill data rewrite");
         }
+        //可以使用数据库储存过程优化，将事务放进mysql，从而减少row lock的持有时间
         try {
             //记录够买行为
             int insertCount = successKilledDao.insertSuccessKilled(seckillId, userPhone);
